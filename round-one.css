@@ -23,5 +23,8 @@
     border: 2px solid red; /*apenas para desenvolver*/
     height: 65vh;
     width: 75vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
