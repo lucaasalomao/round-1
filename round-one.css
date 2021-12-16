@@ -11,8 +11,17 @@
     font-family: 'Oswald', sans-serif;
 }
 
-#canvas {
+#menu {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#canvas-div {
     border: 2px solid red; /*apenas para desenvolver*/
     height: 65vh;
     width: 75vw;
 }
+
