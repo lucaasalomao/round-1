@@ -1,12 +1,29 @@
-
-
 class Player {
     constructor() {
         this.positionX = 10;
         this.positionY = 175;
-    }
+    };
+    
     move() {
-        
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case "ArrowRight":
+                    this.positionX +=10
+                    console.log("entrei-direita")
+                    console.log(this.positionX)
+                    break;
+                case "ArrowUp":
+                    this.positionY -=10
+                    console.log("entrei-cima")
+                    console.log(this.positionY)
+                    break;
+                case "ArrowDown":
+                    this.positionY +=10
+                    console.log("entrei-baixo")
+                    console.log(this.positionY)
+                    break;
+            }
+        })        
     }
 }
 
