@@ -13,7 +13,7 @@ body {
 
 #main-block {
     display: flex;
-    align-items: center;
+    align-items: center; 
     justify-content: center;
     flex-direction: row;
     color: white;
