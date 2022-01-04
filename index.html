@@ -6,28 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Round One Game!</title>
-    <link rel="stylesheet" href="round-one.css"> 
+    <link rel="stylesheet" href="style.css"> 
 </head>
 
 <body>
 
-    <div id="main-block">
-        <div>
-            <h1>Round One</h1>      
+    <div>
+        <h1 id="intro-div">
+            Welcome to Round One game, a game<br>
+            developed by Lucas Salomão for its<br>
+            Ironhack 1st Project.
+        </h1>
+
+        <div id="main-block">
+            <div>
+                <button id="start-button">Start Game</button>
+            </div>
+            <div>
+                <button id="restart-button">Restart Game</button>
+            </div>
         </div>
-        <div>
-            <button id="start-button">Start Game</button>
-        </div>
-        <div>
-            <button id="restart-button">Restart Game</button>
+
+        <div id="audio-div">
+            <audio controls autoplay loop>
+                <source src="round-one-audio.mp3" type="audio/mp3">
+            </audio>
         </div>
     </div>
 
-    <div id="canvas-div">
-        <canvas id="game-space" width="700" height="350"></canvas>
-    </div> 
+    <div>
+        <div id="canvas-div">
+            <canvas id="game-space" width="700" height="350"></canvas>
+        </div> 
+    </div>
 
-    <script type="text/javascript" src="round-one.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 
 </body>
 

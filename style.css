@@ -8,7 +8,7 @@ body {
     background-color: black;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 #main-block {
@@ -32,3 +32,15 @@ body {
     justify-content: center;
 }
 
+#audio-div {
+    height: 10vh;
+    width: 40vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#intro-div {
+    color: white;
+    font-family: 'Oswald', sans-serif;
+}
