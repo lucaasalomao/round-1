@@ -44,7 +44,8 @@ body {
     justify-content: center;
 }
 
-#intro-div {
+#intro-div,
+#score {
     color: white;
     font-family: 'Oswald', sans-serif;
 }
@@ -56,3 +57,11 @@ body {
     transform: translate(-50%, -50%);
     font-size: 50px;
   }
+
+.time-spent {
+    position: absolute;
+    top: 8px;
+    right: 100px;
+    color: black;
+}
+

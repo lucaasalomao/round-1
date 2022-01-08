@@ -17,8 +17,9 @@ class Game {
   constructor() {
     this.canvas = canvasInit
     this.context = context
-    this.points = 0
+    this.points = []
     this.guardInitPosition = []
+    this.time = 30
   }
 
   createPlayGround = () => {
@@ -27,6 +28,7 @@ class Game {
     this.context.drawImage(doll,880,200,70,100)
     this.context.drawImage(guard,900,320,20,30)
     this.createGuardPositions()
+    updateTime()
   };
 
   createGuardPositions = () => { 
@@ -66,21 +68,15 @@ class Player {
     this.movePosX = 0;
     this.movePosY = 0;
     this.playerContext = game.context;
+    this.win = false;
   }
 
-  /*
-  positionPlayer = () => {
-    this.posX += this.movePosX
-    this.posY += this.movePosY
-  }
-  */
 
   drawPlayer = () => {
     this.playerContext.drawImage(playerImg,this.posX,this.posY,this.width,this.height)
   }
 
   movePlayer = () => {
-    //this.positionPlayer()
     this.playerContext.clearRect(this.posX, this.posY, this.width, this.height)
     this.playerContext.drawImage(playerImg,this.posX,this.posY,this.width,this.height)
   }
@@ -91,6 +87,7 @@ const player = new Player()
 
 function checkWin (rightPlayerPosition) {
   if (rightPlayerPosition >= 820) {
+    game.win = true
     var canvasDiv = document.getElementById("canvas-div")
     var gameSpace = document.getElementById("game-space")
     
@@ -106,32 +103,52 @@ function checkWin (rightPlayerPosition) {
   }
 }
 
+function updateTime () {
+  var timeElement = document.createElement("h5")
+  timeElement.textContent = `${game.time} s`
+  timeElement.classList.add("time-spent")
+
+  var timerDiv = document.getElementById("timer")
+  timerDiv.appendChild(timeElement)
+  
+  var myInterval = setInterval( function() {
+    if ((game.time === 0)|(game.win===true)){
+      score()
+      clearInterval(myInterval)
+    }
+    timeElement.innerText = `${game.time} s`
+    game.time -=1
+    }, 1000)
+}
+
+function score () {
+  game.points.push(30 - game.time)
+  var scoreDiv = document.getElementById("score")
+  var scoreElement = document.createElement("h4")
+  scoreElement.innerText = `${game.points.length}º Jogo - Terminou em ${game.points[game.points.length-1]} s`
+  scoreDiv.appendChild(scoreElement)
+}
 
 window.addEventListener("load", () => {
   document.getElementById('start-button').onclick = () => {
     game.createPlayGround()
     player.drawPlayer()
-    
     document.addEventListener("keydown", (e) => {
       switch (e.key) {
         case "ArrowLeft":
-          //player.movePosX -= 1
           player.posX -= 4
           player.movePlayer()
           break;
         case "ArrowRight":
-          //player.movePosX += 1
           player.posX += 50
           player.movePlayer()
           checkWin(player.posX)
           break;
         case "ArrowUp":
-          //player.movePosY -= 1
           player.posY -= 4
           player.movePlayer()
           break;
         case "ArrowDown":
-          //player.movePosY += 1
           player.posY += 4
           player.movePlayer()
       }
