@@ -1,67 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
-* {
-    border: 2px solid red;
-}
-
 body {
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-#main-block {
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-    flex-direction: row;
-    color: white;
+    background: url("images/background.jpg");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-color: #B1BEA2;
     font-family: 'Oswald', sans-serif;
-}
-
-#main-block > div {
-    margin-left: 30px;
-}
-
-#canvas-div {
-    height: 50vh;
-    width: 50vw;
+    color:black;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url("images/ground.jpg");
-    position: relative;
+    flex-direction: row;
+}
+
+h1 {
     text-align: center;
-    color: white;
+    font-size: 9vh;
+    color: black;
+    margin-left: 200px;
+    margin-top: 15px;
+    position: absolute;
+}
+
+ol {
+    text-align: center;
+    margin-left: 700px;
+}
+
+li {
+    list-style-type: none;
 }
 
 #audio-div {
-    height: 10vh;
-    width: 40vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-left: 980px;
+    margin-bottom: 15px;
+    margin-top:15px;
 }
 
-#intro-div,
-#score {
+
+#intro {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#menu-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 320px;
+}
+
+#rights-div {
+    margin-left: 990px;
+}
+
+#timer {
+    margin-right: 20px;
+}
+
+#game-div {
+    display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+    margin-top: 20px;
+    margin-left: 700px;
+}
+
+#canvas-div {
+    border-radius: 25px;
+    background: url("images/ground.jpg");
+    background-position: left top;
+    background-repeat: repeat;
+    height: 400px;
+    width: 850px;
+}
+
+#start-button {
+    background-color: #3399FF;
+    border-radius: 7px;
+    border: none;
     color: white;
+    padding: 7px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
 
-.win-game-message {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 50px;
-  }
-
-.time-spent {
-    position: absolute;
-    top: 8px;
-    right: 100px;
-    color: black;
+#start-button:hover {
+    color: #fff;
+    background-color: #3151DE;
 }
-

@@ -12,38 +12,46 @@
 <body>
 
     <div>
-        <h1 id="intro-div">
-            Welcome to Round One game, a game<br>
-            developed by Lucas Salomão for its<br>
-            Ironhack 1st Project.
-        </h1>
-
-        <div id="main-block">
-            <div>
-                <button id="start-button">Start Game</button>
-            </div>
-            <div>
-                <button id="restart-button">Restart Game</button>
-            </div>
-        </div>
-
-        <div id="audio-div">
-            <audio controls autoplay loop>
-                <source src="round-one-audio.mp3" type="audio/mp3">
-            </audio>
-        </div>
-
-        <div id="score">
-            <h4>Your Score..</h4>
-        </div>
-
+        <h1>Welcome to<br>Round One game!</h1>
     </div>
 
-    <div id="timer">
+    <div>  
+        
+        <ol>
+            <li>Directions:</li>
+            <li>1º Use arrow buttons to move</li>
+            <li>2º If you get caught by any guard you'll go back to the start</li>
+            <li>3º You only have 30 seconds to cross the field</li>
+            <li>4º If there is a tree in front of the Doll, you're good to go. If don't, don't move or she will eliminate you.</li>
+            <li>5º If you cross the line you save yourself and win the game.</li>
+            <li>6º Have fun! Try to reach the line in the minimum amount of time :)</li>
+        </ol>
+
+    <div id="audio-div">
+        <audio controls autoplay loop>
+            <source src="round-one-audio.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <div id="menu-div">
+        <button id="start-button">Start Game</button>
+        <div id="score-timer-div">
+            <div id="score"></div>
+            <div id="timer"></div>
+        </div>
+    </div>
+
+
+    <div id="game-div">
         <div id="canvas-div">
-            <canvas id="game-space" width="950" height="500"></canvas>
+            <canvas id="game-space" width="850" height="400"></canvas>
         </div> 
     </div>
+    
+    <div id="rights-div"><h6>Developed by <i>Lucas Salomão</i> as 1st module project on Ironhack Bootcamp</h6></div>
+
+    </div>
+
 
     <script type="text/javascript" src="script.js"></script>
 
