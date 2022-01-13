@@ -22,7 +22,9 @@ h1 {
 
 ol {
     text-align: center;
-    margin-left: 700px;
+    position: absolute;
+    margin-left: 790px;
+    margin-top:30px;
 }
 
 li {
@@ -31,8 +33,9 @@ li {
 
 #audio-div {
     margin-left: 980px;
-    margin-bottom: 15px;
-    margin-top:15px;
+    position: absolute;
+    margin-bottom: 30px;
+    margin-top:240px;
 }
 
 
@@ -56,6 +59,7 @@ li {
 
 #timer {
     margin-right: 20px;
+    margin-top: 250px;
 }
 
 #game-div {
@@ -86,6 +90,7 @@ li {
     display: inline-block;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
+    margin-top: 250px;
 }
 
 #start-button:hover {

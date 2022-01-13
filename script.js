@@ -21,7 +21,7 @@ class Game {
     this.context = context
     this.points = []
     this.guardsInitPosition = []
-    this.time = 30000
+    this.time = 60
     this.guardQtyOnGame = 30
   }
 
@@ -73,7 +73,6 @@ class Game {
         let latestX = player.posX
         let latestY = player.posY
         game.context.clearRect(720,155,40,90)
-        //player.checkPlayersMove(player.posX,player.posY)
         var playersMoveInterval = setInterval( function() {
           if ((latestX != player.posX)|(latestY != player.posY)) {
             console.log("andou")
@@ -134,7 +133,7 @@ class Player {
     this.posY = 245
     this.playerContext.drawImage(playerImg,this.posX,this.posY,this.width,this.height)
   };
-
+  
   crashWith = () => {
  
     for (let i = 0; i < game.guardQtyOnGame;i++) { 
@@ -148,17 +147,7 @@ class Player {
         return this.goBackPlayer()
       }
     }
-
-  };
-
-  checkPlayersMove = (lastPositionX,lastPositionY) => {
-    var playersMoveInterval = setInterval( function() {
-        if ((lastPositionX != player.posX)|(lastPositionY != player.posY)) {
-          clearInterval(playersMoveInterval)
-          console.log("andou")
-          ///player.lose = true
-        }
-      }, 50)
+  
   };
 
 }
@@ -167,20 +156,24 @@ const player = new Player()
 
 function checkWin (rightPlayerPosition) {
   if (rightPlayerPosition >= 700) {
+    game.points.push(60 - game.time)
+  
     var gameDiv = document.getElementById("game-div")
     var canvasDiv = document.getElementById("canvas-div")
     var timer = document.getElementById("timer")
-    //var start = document.getElementById("start-button")
-    //start.id = "restart-button"
-    //start.innerText = "Refresh Page"
+    var button = document.getElementById("start-button")
     
-    var youWinText = document.createElement("h2")
-    youWinText.textContent = "You Won! Refresh the page and play again o/"
-    
+    var scoreElement = document.createElement("h2")
+    scoreElement.innerText = `You're now safe! It took ${game.points[game.points.length-1]}s for you to cross the field.`
+  
     canvasDiv.remove()
     timer.remove()
-    gameDiv.appendChild(youWinText)
-    score()
+    button.remove()
+  
+    gameDiv.style.marginLeft = "890px"
+    gameDiv.style.marginTop = "400px"
+  
+    gameDiv.appendChild(scoreElement)
   }
 }
 
@@ -197,6 +190,7 @@ function updateTime () {
       var gameDiv = document.getElementById("game-div")
       var canvasDiv = document.getElementById("canvas-div")
       var timer = document.getElementById("timer")
+      var button = document.getElementById("start-button")
       
       var youLoseText = document.createElement("h2")
 
@@ -208,19 +202,14 @@ function updateTime () {
 
       canvasDiv.remove()
       timer.remove()
+      button.remove()
+      gameDiv.style.marginLeft = "860px"
+      gameDiv.style.marginTop = "400px"
       gameDiv.appendChild(youLoseText)
     }
     timeElement.innerText = `Tempo restante: ${game.time} s`
     game.time -=1
     }, 1000)
-}
-
-function score () {
-  game.points.push(30 - game.time)
-  var scoreDiv = document.getElementById("score")
-  var scoreElement = document.createElement("h3")
-  scoreElement.innerText = `Você terminou em ${game.points[game.points.length-1]} s`
-  scoreDiv.appendChild(scoreElement)
 }
 
 
